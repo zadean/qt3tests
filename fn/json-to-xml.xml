@@ -232,7 +232,7 @@
       <modified by="Michael Kay" on="2015-06-23" change="Namespace change for bug 28174"/>
       <modified by="Zachary Dean" on="2019-03-11" change="Add qualified name in assertions"/>
       <environment ref="json-files"/>
-      <test>fn:json-to-xml(unparsed-text('http://www.w3.org/qt3/json/escapeText-json'))//Q{http://www.w3.org/2005/xpath-functions}:string</test>
+      <test>fn:json-to-xml(unparsed-text('http://www.w3.org/qt3/json/escapeText-json'))//Q{http://www.w3.org/2005/xpath-functions}string</test>
       <result>
             <assert-xml ignore-prefixes="true"><![CDATA[<string xmlns="http://www.w3.org/2005/xpath-functions" key="key">Data with " within it</string>]]></assert-xml>
       </result>
