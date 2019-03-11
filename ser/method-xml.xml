@@ -754,7 +754,7 @@
     <result>
       <any-of>
         <serialization-matches><![CDATA[<out att=['"]AAABBBCCC['"]>XAAABBBCCCX</out>]]></serialization-matches>
-        <assert-error code="XQST0119"/>
+        <error code="XQST0119"/>
       </any-of>
     </result>
   </test-case>
@@ -777,7 +777,7 @@
     <result>
       <any-of>
         <serialization-matches><![CDATA[^<out><in><!\[CDATA\[XXX\]\]></in></out>$]]></serialization-matches>
-        <assert-error code="XQST0119"/>
+        <error code="XQST0119"/>
       </any-of>
     </result>
   </test-case>
