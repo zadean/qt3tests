@@ -564,7 +564,10 @@
 
       ]]></test>
       <result>
-        <serialization-matches>\["AAABBBCCC","XAAABBBCCCX"\]</serialization-matches>
+        <any-of>
+          <serialization-matches>\["AAABBBCCC","XAAABBBCCCX"\]</serialization-matches>
+          <error code="XQST0119" /> <!-- parameter document -->
+        </any-of>
       </result>
    </test-case>
      
@@ -584,7 +587,10 @@
 
       ]]></test>
       <result>
-        <serialization-matches>"\|suc&#807;on\|"</serialization-matches>
+        <any-of>
+          <serialization-matches>"\|suc&#807;on\|"</serialization-matches>
+          <error code="XQST0119" /> <!-- parameter document -->
+        </any-of>
       </result>
    </test-case>
    
@@ -601,7 +607,10 @@
 
       ]]></test>
       <result>
-        <serialization-matches>\{"\|"\|":"""\}</serialization-matches>
+        <any-of>
+          <serialization-matches>\{"\|"\|":"""\}</serialization-matches>
+          <error code="XQST0119" /> <!-- parameter document -->
+        </any-of>
       </result>
    </test-case>   
         
@@ -618,7 +627,10 @@
 
       ]]></test>
       <result>
-        <serialization-matches>\{"k":1,"k":1\}</serialization-matches>
+        <any-of>
+          <serialization-matches>\{"k":1,"k":1\}</serialization-matches>
+          <error code="XQST0119" /> <!-- parameter document -->
+        </any-of>
       </result>
    </test-case>
    
@@ -635,7 +647,10 @@
 
       ]]></test>
       <result>
-        <serialization-matches>"AAABBBCCC"</serialization-matches>
+        <any-of>
+          <serialization-matches>"AAABBBCCC"</serialization-matches>
+          <error code="XQST0119" /> <!-- parameter document -->
+        </any-of>
       </result>
    </test-case>
    
@@ -652,7 +667,10 @@
 
       ]]></test>
       <result>
-        <serialization-matches>\[123,"one23","---oneone"\]</serialization-matches>
+        <any-of>
+          <serialization-matches>\[123,"one23","---oneone"\]</serialization-matches>
+          <error code="XQST0119" /> <!-- parameter document -->
+        </any-of>
       </result>
    </test-case> 
    
