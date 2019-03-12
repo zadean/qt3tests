@@ -955,14 +955,13 @@
         <created by="Debbie Lockett, Saxonica" on="2015-05-19"/>
         <modified by="Josh Spiegel" on="2016-05-19" change="bug 29373"/>
         <modified by="Michael Kay" on="2016-06-15" change="test requires XQuery"/>
-        <modified by="Zachary Dean" on="2019-03-11" change="QName should throw error"/>
         <dependency type="spec" value="XQ31+"/>
         <test><![CDATA[let $params := map { QName("","indent") : true() }
             return contains(serialize(<e><f/></e>, $params), " ")
         ]]>
         </test>
         <result>
-            <error code="SEPM0016"/>
+            <assert-false/>
         </result>
     </test-case>
     
