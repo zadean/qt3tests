@@ -102,7 +102,7 @@
     
     <environment name="Wikipedia-Origami.xml">
       <source role="." file="UseCaseR31/Wikipedia-Origami.xml" uri="http://www.w3.org/2010/09/qt-fots-catalog/UseCaseR31/Wikipedia-Origami.xml"/>
-      <static-base-uri uri="http://www.w3.org/2010/09/qt-fots-catalog/UseCaseR31/" />
+      <static-base-uri uri="http://www.w3.org/2010/09/qt-fots-catalog/" />
       <param name="uri" as="xs:string" select="'Wikipedia-Origami.xml'"/>
     </environment>
 
