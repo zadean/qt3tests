@@ -755,13 +755,17 @@
    <test-case name="modules-17">
       <description> Evaluation of module import with variables bound to a namespace URI different from the target namespace of the module. </description>
       <created by="Carmelo Montanez" on="2006-04-11"/>
+      <modified by="Zachary Dean" on="2019-03-26" change="When compiling, failing modules are unavailable. Added error code"/>
       <module uri="http://www.w3.org/TestModules/diffns" file="ModuleImport/modulesdiffns-lib.xq"/>
       <test><![CDATA[
         import module namespace defs="http://www.w3.org/TestModules/diffns"; 
         "abc"
       ]]></test>
       <result>
-         <error code="XQST0048"/>
+        <any-of>
+          <error code="XQST0048"/>
+          <error code="XQST0059"/>
+        </any-of>
       </result>
    </test-case>
 
@@ -986,6 +990,7 @@
       <description> Cyclic module imports </description>
       <created by="Nicolae Brinza" on="2009-04-01"/>
       <modified by="Tim Mills" on="2013-01-14" change="XQST changed to XQDY"/>
+      <modified by="Zachary Dean" on="2019-03-26" change="When compiling, failing modules are unavailable. Added error code"/>
       <module uri="http://www.w3.org/TestModules/defs1" file="ModuleImport/modules-recursive1.xq"/>
       <module uri="http://www.w3.org/TestModules/defs2" file="ModuleImport/modules-recursive2.xq"/>
       <dependency type="spec" value="XQ30+"/>
@@ -994,7 +999,10 @@
         $defs1:var
       ]]></test>
       <result>
-        <error code="XQDY0054"/>
+        <any-of>
+          <error code="XQDY0054"/>
+          <error code="XQST0059"/>
+        </any-of>
       </result>
    </test-case>
 
@@ -1202,6 +1210,7 @@
       <description> Test XQST0093 by importing a module with a circular dependency </description>
       <created by="John Snelson" on="2009-10-01"/>
       <modified by="Tim Mills" on="2013-01-14" change="XQST changed to XQDY"/>
+      <modified by="Zachary Dean" on="2019-03-26" change="When compiling, failing modules are unavailable. Added error code"/>
       <module uri="http://www.w3.org/TestModules/errata8_1a" file="ModuleImport/errata8-module1a.xq"/>
       <module uri="http://www.w3.org/TestModules/errata8_1b" file="ModuleImport/errata8-module1b.xq"/>
       <dependency type="spec" value="XQ30+"/>
@@ -1210,7 +1219,10 @@
         errata8_1a:fun()
       ]]></test>
       <result>
-         <error code="XQDY0054"/><!-- XQuery 3.0 -->
+        <any-of>
+          <error code="XQDY0054"/><!-- XQuery 3.0 -->
+          <error code="XQST0059"/>
+        </any-of>
       </result>
    </test-case>
 
@@ -1231,6 +1243,7 @@
    <test-case name="errata8-002a" covers-30="module-cycles">
       <description> Test XQST0093 by importing a module with a circular dependency </description>
       <created by="John Snelson" on="2009-10-01"/>
+      <modified by="Zachary Dean" on="2019-03-26" change="When compiling, cyclic imports cannot function. Added error code"/>
       <modified by="Michael Kay" on="2013-01-07" change="no longer an error in XQuery 3.0"/>
       <module uri="http://www.w3.org/TestModules/errata8_2a" file="ModuleImport/errata8-module2a.xq"/>
       <module uri="http://www.w3.org/TestModules/errata8_2b" file="ModuleImport/errata8-module2b.xq"/>
@@ -1239,7 +1252,10 @@
         import module namespace errata8_2a="http://www.w3.org/TestModules/errata8_2a"; 
         errata8_2a:fun()]]></test>
       <result>
-         <assert-eq>10</assert-eq>
+        <any-of>
+          <assert-eq>10</assert-eq>
+          <error code="XQST0059"/>
+        </any-of>
       </result>
    </test-case>
 
@@ -1696,6 +1712,7 @@
   <test-case name="modules-pub-priv-28" covers-30="private-functions">
       <description> library module private function is visible from function in different library module. </description>
       <created by="Josh Spiegel, Oracle" on="2012-01-04"/>
+      <modified by="Zachary Dean" on="2019-03-26" change="When compiling, failed modules cannot be found. Added error code"/>
       <module uri="http://www.w3.org/TestModules/module-pub-priv" file="ModuleImport/module-pub-priv.xq"/>
       <module uri="http://www.w3.org/TestModules/module-pub-priv2" file="ModuleImport/module-pub-priv2.xq"/>
       <dependency type="spec" value="XQ30+"/>
@@ -1704,7 +1721,10 @@
         <a>{defs:fails()}</a>
       ]]></test>
       <result>
-            <error code="XPST0017"/>
+        <any-of>
+          <error code="XPST0017"/>
+          <error code="XQST0059"/>
+        </any-of>
       </result>
    </test-case>
 
@@ -1886,6 +1906,7 @@
       <description> Test that global variables defined in one module are not "leaked" into another </description>
       <created by="Oliver Hallam" on="2009-07-27"/>
       <modified by="O'Neil Delpratt" on="2013-03-18" change="Corrected case of directory name 'ModuleImport'"/>
+      <modified by="Zachary Dean" on="2019-03-26" change="When compiling, failed modules cannot be found. Added error code"/>
       <module uri="http://www.xqsharp.com/test/variabledeclaration" file="ModuleImport/variabledeclaration-lib.xq"/>
       <module uri="http://www.xqsharp.com/test/variablereference" file="ModuleImport/variablereference-lib.xq"/>
       <test>
@@ -1894,7 +1915,10 @@
       	bar:test()
       </test>
       <result>
-         <error code="XPST0008"/>
+        <any-of>
+          <error code="XPST0008"/>
+          <error code="XQST0059"/>
+        </any-of>
       </result>
    </test-case>
    

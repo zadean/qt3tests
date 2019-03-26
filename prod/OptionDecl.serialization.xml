@@ -58,6 +58,7 @@
    <test-case name="Serialization-003">
       <description> it is a static error [err:XQST0108] if an output declaration appears in a library module </description>
       <created by="Dennis Knochenwefel" on="2011-12-05"/>
+      <modified by="Zachary Dean" on="2019-03-26" change="When compiling, failed modules are not found." />
       <module uri="http://www.w3.org/TestModules/test" file="Serialization/serialization1-lib.xq"/>
       <dependency type="spec" value="XQ30+"/>
       <test><![CDATA[
@@ -65,7 +66,10 @@
          <result>{test:ok()}</result>
       ]]></test>
       <result>
-         <error code="XQST0108" />
+        <any-of>
+          <error code="XQST0108" />
+          <error code="XQST0059"/>
+        </any-of>
       </result>
    </test-case>
 
